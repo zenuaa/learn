@@ -1,14 +1,40 @@
 " use strict ";
-let x = 0;
-let someFun = function () {
-    let y = 4;
-    return x + y;
-};
+
+// function loop(x){                        //замыкания в цикле
+//     for(var i = 0; i < x; i++){
+//         let f = () => {
+//             console.log(i);
+//             return i;
+//         };
+//         f();
+//        if ( i == x-1 ){
+//             console.dir(f);
+//             return f;
+//         }
+        
+// }
+// //console.info(i + ' - Global');
+// }
+
+// let l = new loop(7);
+// let n = new loop(10);
+// console.dir(l);
+// l();
+// l();
 
 
-console.log(x);
-console.dir(someFun);
-// function Count(x) {
+
+ 
+
+// let x = 0;                          // не нашел замыкания о индусу
+// let someFun = function () {         
+//     let y = 4;
+//     return x + y;
+// };
+// console.log(x);
+// console.dir(someFun);
+
+// function Count(x) {          //замыкание на 2х аргументах
 //     let f = function (y) {
 //         return ++x;
 //     };
@@ -22,16 +48,6 @@ console.dir(someFun);
 // console.log(countTwo(5));
 // console.dir(countTwo);
 
-// function mainAdd(valC) {
-      
-//      return function add(someNumber) {
-//         let count;
-//         count = valC + someNumber;
-//         return count;
-//     };
-// }
-// let mainCount = new mainAdd(2);
-// console.log(mainCount(1));
 
 // function Сounter() {
 //     let x = 0,
