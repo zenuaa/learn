@@ -1,6 +1,58 @@
 " use strict ";
 
-// function loop(x){                        //замыкания в цикле
+let obj = {                                         //обьекты
+    names: 'zenua',
+    age: 32,
+    children: {
+        polina: 9,
+        anna: 7,
+        tanya: 2,
+    },
+    makeSome: function (text) {                     //метод
+        console.log(text);
+    }
+};
+obj.makeSome('hello');
+
+const {polina, anna, tanya} = obj.children;        //деструктуризация обькта
+console.log(polina);
+
+// function logHi(x=12, y='Hello', z='google') {           // default value of function argument 
+//     console.log(x);
+//     console.log(y);
+//     console.log(z);
+// }
+
+// logHi(10, 'John', 'zenua');
+// logHi();
+
+
+// function logHi() {           // function in argument another function 
+//     console.log('Hi');
+// }
+// let logGoodBye = () => console.log('Good Bye');
+
+// function mainF(x, y, z) {
+//     if (x) {
+//         y();
+//     } else {
+//         z();
+//     }
+// }
+// mainF(0, logHi, logGoodBye);
+
+// function logF() {             // function in argument another function 
+//     console.log('HI');
+// }
+// ;
+// function mainF(y){ 
+//     y();
+// }
+// mainF(logF);
+
+
+// function loop(x){                        //замыкания в цикле 
+                                            //function in loop is хреновая штука лучше такое не юзать
 //     for(var i = 0; i < x; i++){
 //         let f = () => {
 //             console.log(i);
@@ -11,7 +63,7 @@
 //             console.dir(f);
 //             return f;
 //         }
-        
+
 // }
 // //console.info(i + ' - Global');
 // }
@@ -24,7 +76,7 @@
 
 
 
- 
+
 
 // let x = 0;                          // не нашел замыкания о индусу
 // let someFun = function () {         

@@ -27,8 +27,6 @@ do {
     i++;
 }
 while (i < 2);
-console.log(personalMovieDB);
-console.log(movies);
 
 if (personalMovieDB.count < 10) {
     console.log('Too few movies watched.');
@@ -36,4 +34,23 @@ if (personalMovieDB.count < 10) {
     console.log('You are a classic viewer.');
 } else if (personalMovieDB.count > 30) {
     console.log('You are a movie fan.');
-} else {console.log('An arror has occurrated.');}
+} else {
+    console.log('An arror has occurrated.');
+}
+
+function showMyDB() {
+    if (!personalMovieDB.privat) {
+        console.log(personalMovieDB);
+    }
+}
+showMyDB();
+
+
+
+function writeYourGenres() {
+    for (let i = 0; i < 3; i++) {
+        personalMovieDB.genres[i] = prompt(`Your favorit genre by number ${i+1}`);
+    }
+}
+writeYourGenres();
+console.log(personalMovieDB);
