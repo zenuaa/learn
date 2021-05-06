@@ -1,21 +1,57 @@
 " use strict ";
+let arr = [1, 2, 3, 4, ],
+    arrOne = [5, 6, 7, 8, 9],
+    arrTwo = [];
+arrTwo = [...arr, ...arrOne];
+console.log(arrTwo);
 
-let obj = {                                         //обьекты
+
+const objToCopy = {
+    name: 'Olga',
+    ageOLga: 29,
+};
+
+let obj = { //обьекты
     names: 'zenua',
     age: 32,
-    children: {
-        polina: 9,
+    'children': {
+        'polina': 9,
         anna: 7,
         tanya: 2,
     },
-    makeSome: function (text) {                     //метод
-        console.log(text);
-    }
 };
-obj.makeSome('hello');
+console.log('children' in obj);
 
-const {polina, anna, tanya} = obj.children;        //деструктуризация обькта
-console.log(polina);
+
+const newObj = {};
+copy(obj, newObj); // make copy one object to another            
+
+
+function copy(someObject, toAnotherObject) { // function copy someObject to anotherObject поверхностная
+
+    for (const key in someObject) {
+        toAnotherObject[key] = someObject[key];
+    }
+}
+
+
+
+// let obj = {                                         //обьекты
+//     names: 'zenua',
+//     age: 32,
+//     children: {
+//         polina: 9,
+//         anna: 7,
+//         tanya: 2,
+//     },
+//     makeSome: function (text) {                     //метод
+//         console.log(text);
+//     }
+// };
+// obj.makeSome('hello');
+
+// const {polina, anna, tanya} = obj.children;        //деструктуризация обькта
+// console.log(polina);
 
 // function logHi(x=12, y='Hello', z='google') {           // default value of function argument 
 //     console.log(x);
@@ -52,7 +88,7 @@ console.log(polina);
 
 
 // function loop(x){                        //замыкания в цикле 
-                                            //function in loop is хреновая штука лучше такое не юзать
+//function in loop is хреновая штука лучше такое не юзать
 //     for(var i = 0; i < x; i++){
 //         let f = () => {
 //             console.log(i);
