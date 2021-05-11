@@ -1,38 +1,159 @@
 " use strict ";
-let arr = [1, 2, 3, 4, ],
-    arrOne = [5, 6, 7, 8, 9],
-    arrTwo = [];
-arrTwo = [...arr, ...arrOne];
-console.log(arrTwo);
+let arrSome = [1, 2, 'qwe'];
+let f = function fun() {
+    return 1;
+};
+let objGranpa = {
+    ONE: 1,
+    logHi: function () {
+        console.log('Hi');
+    }
+};
 
+let newProto = {
+    qwe:1,
+    asd:2
+};
+let objOne = Object.create(objGranpa);                             //create one Object from another as prototype
+objOne.name = 'Im Some Object, witch one method';
+
+
+
+class FamilyObject {                                                // create Class constructor
+    constructor(name, age, children) {
+        this.name = name;
+        this.age = age;
+        this.children = children;
+        this.address = 'Suvorova str. #24_a';
+        this['pet\'s'] = ['Oskar', 'Tigan'];
+    }
+    show() {                                                   //add method 'Show' to the class
+        let request = prompt('What do you want to see: name, age or children?');
+        switch (request.toLocaleLowerCase()) {
+            case 'name':
+                return this.name;
+            case 'age':
+                return this.age;
+            case 'children':
+                return this.children;
+            default:
+                return 'Input Error!';
+        }
+    }                                                       
+    makeArrayFromObject() {                                         //add method 'make Array' to the class
+        let arrProperties = [];
+        arrProperties = Object.keys(this);
+        return arrProperties;
+    }
+    deleteUndefinedProperties(){                                //add method 'Delete Undefined Properties' to the class
+        for(let key in this){
+            if(this[key] === undefined){
+                delete this[key];
+            }
+        }
+    }
+}
+let child = {
+    Polina: {
+        name: 'Polina',
+        age: 9
+    },
+    Anna: {
+        name: 'Anna',
+        age: 7
+    },
+    Tanya: {
+        name: 'Tanya',
+        age: 2
+    }
+};
+
+let childObject = new FamilyObject();
+Object.assign(childObject, child);
+childObject.deleteUndefinedProperties();
+let zenua = new FamilyObject('zenua', 32, childObject );
+zenua.someShit = undefined;
+
+
+
+// function FamilyObjectCreate(name, age, children) {        //function constructor + add method to prototype further
+//     this.name = name;
+//     this.age = age;
+//     this.children = children;
+//     this.address = 'Suvorova str. #24_a';
+//     this['pet\'s'] = ['Oskar', 'Tigan'];
+// }
+// FamilyObjectCreate.prototype.show = function () {           //add method to prototype 
+//     let request = prompt('What do you want to see: name, age or children?');
+//     switch (request.toLocaleLowerCase()) {
+//         case 'name':
+//             return this.name;
+//         case 'age':
+//             return this.age;
+//         case 'children':
+//             return this.children;
+//         default:
+//             return 'Input Error!';
+//     }
+// };
+
+// let zenua = new FamilyObjectCreate('zenua', 32, {           //create a new object used ours constructor
+//     Polina: {
+//         name: 'Polina',
+//         age: 9
+//     },
+//     Anna: {
+//         name: 'Anna',
+//         age: 7
+//     },
+//     Tanya: {
+//         name: 'Tanya',
+//         age: 9
+//     }
+// });
+// let Olga = new FamilyObjectCreate('Olga', 29, {Tanua: 2});  //create another object.. like previous
+
+
+
+
+
+
+// let str = 'text';
+// console.log( typeof(str.toUpperCase() ));
+
+// let arr = [1, 2, 3, 4, ],
+//     arrOne = [5, 6, 7, 8, 9],
+//     arrTwo = [];
+// arrTwo = [...arr, ...arrOne];
+// console.log(arrTwo);
 
 const objToCopy = {
     name: 'Olga',
     ageOLga: 29,
 };
 
-let obj = { //обьекты
-    names: 'zenua',
-    age: 32,
-    'children': {
-        'polina': 9,
-        anna: 7,
-        tanya: 2,
-    },
-};
-console.log('children' in obj);
+// let obj = { //обьекты
+//     names: 'zenua',
+//     age: 32,
+//     'children': {
+//         'polina': 9,
+//         anna: 7,
+//         tanya: 2,
+//     },
+// };
+// console.log('children' in obj);
 
 
-const newObj = {};
-copy(obj, newObj); // make copy one object to another            
+// const newObj = {};
+// copy(obj, newObj); // make copy one object to another            
 
 
-function copy(someObject, toAnotherObject) { // function copy someObject to anotherObject поверхностная
+// function copy(someObject, toAnotherObject) { // function copy someObject to anotherObject поверхностная
 
-    for (const key in someObject) {
-        toAnotherObject[key] = someObject[key];
-    }
-}
+//     for (const key in someObject) {
+//         toAnotherObject[key] = someObject[key];
+//     }
+// }
 
 
 
