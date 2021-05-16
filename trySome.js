@@ -1,78 +1,163 @@
 " use strict ";
-let arrSome = [1, 2, 'qwe'];
-let f = function fun() {
-    return 1;
-};
+function counter(x){
+    return function (y) {
+        return x+y;
+    };
+}
+
+let countOne = new counter(2);
+let countTwo = new counter(9);
+
+
+
+class FirstClass{
+    count = 'first';
+    constructor({
+        name:name,
+        age:age
+    }){ this.name = name;
+        this.age = age; 
+    }
+    showHi(){
+        console.log('HI');
+    }
+}
+
+var zen =new FirstClass({name: 'zenua',
+age:50});
+
+
+
+function FirstObject({
+    name:name,
+    age:age
+}){
+    this.name = name;
+    this.age = age;
+    this.showName = function(){
+        return this.name;
+    };
+    this.showAge = function(){
+        return this.age;
+    };
+
+}
 let objGranpa = {
     ONE: 1,
     logHi: function () {
         console.log('Hi');
     }
 };
+let zenuaObject = new FirstObject({
+    name: 'zenua',
+    age: 32
+});
+console.log(zenuaObject);
+FirstObject.prototype.newMethod = function(){
+    console.log('hi im newMethod');
+};
+let olgaObject = new FirstObject('Olga', );
+
+
+let quest = zenuaObject._proto_ === olgaObject._proto_;
+console.log(quest);
+
+//console.log(zenuaObject.__proto__=== FirstObject.prototype);
+let strangeObject = new FirstObject({
+    name: 'zenua',
+    age:50
+});
+
+
+let key = Object.keys(zenuaObject);
+let val = Object.values(zenuaObject);
+for(let i = 0; i < key.length; i+=1){
+    console.log(key[i] +' :- '+ val[i]);
+}
+console.log(Object.entries(zenuaObject));
+
+
+
+
+let str ={name:1};
+let num ='sdfsf';
+console.log(str._proto_=== num._proto_);
+
+
+
+
+
+console.log(null == undefined);
+
+let f = function f() {
+    return 1;
+};
+
+
 
 let newProto = {
     qwe:1,
     asd:2
 };
-let objOne = Object.create(objGranpa);                             //create one Object from another as prototype
-objOne.name = 'Im Some Object, witch one method';
+// let objOne = Object.create(objGranpa);                             //create one Object from another as prototype
+// objOne.name = 'Im Some Object, witch one method';
 
 
 
-class FamilyObject {                                                // create Class constructor
-    constructor(name, age, children) {
-        this.name = name;
-        this.age = age;
-        this.children = children;
-        this.address = 'Suvorova str. #24_a';
-        this['pet\'s'] = ['Oskar', 'Tigan'];
-    }
-    show() {                                                   //add method 'Show' to the class
-        let request = prompt('What do you want to see: name, age or children?');
-        switch (request.toLocaleLowerCase()) {
-            case 'name':
-                return this.name;
-            case 'age':
-                return this.age;
-            case 'children':
-                return this.children;
-            default:
-                return 'Input Error!';
-        }
-    }                                                       
-    makeArrayFromObject() {                                         //add method 'make Array' to the class
-        let arrProperties = [];
-        arrProperties = Object.keys(this);
-        return arrProperties;
-    }
-    deleteUndefinedProperties(){                                //add method 'Delete Undefined Properties' to the class
-        for(let key in this){
-            if(this[key] === undefined){
-                delete this[key];
-            }
-        }
-    }
-}
-let child = {
-    Polina: {
-        name: 'Polina',
-        age: 9
-    },
-    Anna: {
-        name: 'Anna',
-        age: 7
-    },
-    Tanya: {
-        name: 'Tanya',
-        age: 2
-    }
-};
+// class FamilyObject {                                                // create Class constructor
+//     constructor(name, age, children) {
+//         this.name = name;
+//         this.age = age;
+//         this.children = children;
+//         this.address = 'Suvorova str. #24_a';
+//         this['pet\'s'] = ['Oskar', 'Tigan'];
+//     }
+//     show() {                                                   //add method 'Show' to the class
+//         let request = prompt('What do you want to see: name, age or children?');
+//         switch (request.toLocaleLowerCase()) {
+//             case 'name':
+//                 return this.name;
+//             case 'age':
+//                 return this.age;
+//             case 'children':
+//                 return this.children;
+//             default:
+//                 return 'Input Error!';
+//         }
+//     }                                                       
+//     makeArrayFromObject() {                                         //add method 'make Array' to the class
+//         let arrProperties = [];
+//         arrProperties = Object.keys(this);
+//         return arrProperties;
+//     }
+//     deleteUndefinedProperties(){                            //add method 'Delete Undefined Properties' to the class
+//         for(let key in this){
+//             if(this[key] === undefined){
+//                 delete this[key];
+//             }
+//         }
+//     }
+// }
+// let child = {
+//     Polina: {
+//         name: 'Polina',
+//         age: 9
+//     },
+//     Anna: {
+//         name: 'Anna',
+//         age: 7
+//     },
+//     Tanya: {
+//         name: 'Tanya',
+//         age: 2
+//     }
+// };
 
-let childObject = new FamilyObject();
-Object.assign(childObject, child);
-childObject.deleteUndefinedProperties();
-let zenua = new FamilyObject('zenua', 32, childObject );
-zenua.someShit = undefined;
+// let childObject = new FamilyObject();
+// Object.assign(childObject, child);
+// childObject.deleteUndefinedProperties();
+// let zenua = new FamilyObject('zenua', 32, childObject );
+// zenua.someShit = undefined;
 
 
 
