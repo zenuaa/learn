@@ -76,6 +76,9 @@ for(let i = 0; i < key.length; i+=1){
 }
 console.log(Object.entries(zenuaObject));
 
+let x = 'привет женя';
+console.log(x.substring(2,5));
+
 
 
 
