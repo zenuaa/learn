@@ -1,107 +1,99 @@
 " use strict ";
-function counter(x){
-    return function (y) {
-        return x+y;
+let x = 5,
+    y = 2;
+let arr = [1, 2, 3, [x, y], x + y, {
+        valueX: x,
+        valueY: y,
+        sum: x + y
+    }],
+    arrOne = [10, 20, 30, ...arr],
+    obj = {
+        name: 'zenua',
+        age: 32,
+        wife: 'Olga',
+        children: ['Polina', 'Anna', 'Tanua'],
+        [Symbol.toPrimitive]: function (hint) {
+            return obj.hint;
+        }
     };
-}
+let psevdoObject = {
+    0: 'zenua',
+    1: 32,
+    2: 'Olga',
+    3: ['Polina', 'Anna', 'Tanua'],
+    length: 4
+};
+const showSwallowe = document.querySelectorAll('#hide')[0],
+    hideSwallowe = document.querySelectorAll('#hide')[0];
 
-let countOne = new counter(2);
-let countTwo = new counter(9);
-
-
-
-class FirstClass{
-    count = 'first';
-    constructor({
-        name:name,
-        age:age
-    }){ this.name = name;
-        this.age = age; 
-    }
-    showHi(){
-        console.log('HI');
-    }
-}
-
-var zen =new FirstClass({name: 'zenua',
-age:50});
-
-
-
-function FirstObject({
-    name:name,
-    age:age
-}){
-    this.name = name;
-    this.age = age;
-    this.showName = function(){
-        return this.name;
-    };
-    this.showAge = function(){
-        return this.age;
-    };
-
-}
-let objGranpa = {
-    ONE: 1,
-    logHi: function () {
-        console.log('Hi');
+const task = {
+    string: undefined,
+    installString: function (value) {
+        if (value === undefined) {
+            this.string = '';
+        } else
+        if (isFinite(value)) {
+            this.string = [] + value;
+        } else {
+            this.string = value;
+        }
+    },
+    getString: function () {
+        return this.string;
+    },
+    getStringLength: function () {
+        return this.string.length;
+    },
+    getStringReverse: function () {
+        let str = this.string,
+            srtReverse,
+            arr;
+        arr = str.split('');
+        arr.reverse();
+        srtReverse = arr.join('');
+        return srtReverse;
     }
 };
-let zenuaObject = new FirstObject({
-    name: 'zenua',
-    age: 32
-});
-console.log(zenuaObject);
-FirstObject.prototype.newMethod = function(){
-    console.log('hi im newMethod');
-};
-let olgaObject = new FirstObject('Olga', );
 
-
-let quest = zenuaObject._proto_ === olgaObject._proto_;
-console.log(quest);
-
-//console.log(zenuaObject.__proto__=== FirstObject.prototype);
-let strangeObject = new FirstObject({
-    name: 'zenua',
-    age:50
-});
-
-
-let key = Object.keys(zenuaObject);
-let val = Object.values(zenuaObject);
-for(let i = 0; i < key.length; i+=1){
-    console.log(key[i] +' :- '+ val[i]);
-}
-console.log(Object.entries(zenuaObject));
-
-let x = 'привет женя';
-console.log(x.substring(2,5));
-
-
-
-
-let str ={name:1};
-let num ='sdfsf';
-console.log(str._proto_=== num._proto_);
-
-
-
-
-
-console.log(null == undefined);
-
-let f = function f() {
-    return 1;
+const cal = {
+    val: undefined,
+    setVal: function (value) {
+        if (isFinite(value)) {
+            this.val = value;
+            return this;
+        } else {
+            console.log('ERROR VALUE!');
+        }
+    },
+    add: function (value) {
+        this.val += value;
+        return this;
+    },
+    multiply: function (value) {
+        this.val *= value;
+        return this;
+    },
+    getResult: function () {
+        return this.val;
+    },
+    degree: function (value) {
+        this.val = Math.pow(this.val, value);
+        return this;
+    },
+    divide: function (value) {
+        this.val /= value;
+        return this;
+    }
 };
 
 
 
-let newProto = {
-    qwe:1,
-    asd:2
-};
+
+
+
+
+
+
 // let objOne = Object.create(objGranpa);                             //create one Object from another as prototype
 // objOne.name = 'Im Some Object, witch one method';
 

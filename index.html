@@ -49,7 +49,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something_else_here</a></li>
+                                <li><a  class="dropdown-item" href="#">Something_else_here</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -62,14 +62,18 @@
         </nav>
     </header>
     <section>
-        <div class="container-xxl">
+        <div class="container-xxl" title="imDiv">
             <div class="row align-items-center">
                 <div class="col-8" >
                     <h3>Click F12 and you'll see results of your script in console</h3>
                 </div>
                 <div class="col-4">
-                    <h5>Beautiful swallow</h5>
-                    <img class="img-thumbnail" src="image/bird.gif" alt="Swallowe"></div>
+                    <h5 >Beautiful swallow</h5>
+                    <button id="hide" onclick='document.querySelectorAll("#swallowe")[0].hidden = true' type="button" class="btn btn-outline-danger">Hide image</button>
+                    <button id="show" onclick='document.querySelectorAll("#swallowe")[0].hidden = false' type="button" class="btn btn-outline-primary">Show image</button>
+                    <img id="swallowe" class="img-thumbnail" src="image/bird.gif" alt="Swallowe"></div>
+                    
+
             </div>
         </div>
     </section>
@@ -77,7 +81,7 @@
         <nav class="navbar navbar-light bg-light">
             <div class="container-xxl">
               <span class="navbar-text">
-                <p class="fs-5">Some Information may be placed here..</p>
+                <p id="footer" class="fs-5">Some Information may be placed here..</p>
               </span>
             </div>
           </nav>
