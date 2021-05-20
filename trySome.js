@@ -23,8 +23,11 @@ let psevdoObject = {
     3: ['Polina', 'Anna', 'Tanua'],
     length: 4
 };
-const showSwallowe = document.querySelectorAll('#hide')[0],
-    hideSwallowe = document.querySelectorAll('#hide')[0];
+//const showSwallowe = document.querySelectorAll('#show')[0],
+//     hideSwallowe = document.querySelectorAll('#hide')[0];
+// showSwallowe.onclick = document.querySelectorAll("#swallowe")[0].hidden = false;  //работает только со стороны html  
+// hideSwallowe.onclick = document.querySelectorAll("#swallowe")[0].hidden = true;  //или браузера, от сбда не работает
+
 
 const task = {
     string: undefined,
