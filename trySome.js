@@ -1,93 +1,141 @@
 " use strict ";
-let x = 5,
-    y = 2;
-let arr = [1, 2, 3, [x, y], x + y, {
-        valueX: x,
-        valueY: y,
-        sum: x + y
-    }],
-    arrOne = [10, 20, 30, ...arr],
-    obj = {
-        name: 'zenua',
-        age: 32,
-        wife: 'Olga',
-        children: ['Polina', 'Anna', 'Tanua'],
-        [Symbol.toPrimitive]: function (hint) {
-            return obj.hint;
-        }
-    };
-let psevdoObject = {
-    0: 'zenua',
-    1: 32,
-    2: 'Olga',
-    3: ['Polina', 'Anna', 'Tanua'],
-    length: 4
-};
-//const showSwallowe = document.querySelectorAll('#show')[0],
-//     hideSwallowe = document.querySelectorAll('#hide')[0];
-// showSwallowe.onclick = document.querySelectorAll("#swallowe")[0].hidden = false;  //работает только со стороны html  
-// hideSwallowe.onclick = document.querySelectorAll("#swallowe")[0].hidden = true;  //или браузера, от сбда не работает
+const someId = document.getElementById('id'), // some String have id
+    querySelect = document.querySelectorAll('.clas')[0], // some String have class
+    querySelectParent = querySelect.parentNode, // main div with our all strings
+    allButton = document.getElementsByTagName('button'), // buttons on the page
+    allDiv = document.querySelectorAll('div'), // all div on the page
+    picture = document.querySelector('#swallowe'); // animation
 
 
-const task = {
-    string: undefined,
-    installString: function (value) {
-        if (value === undefined) {
-            this.string = '';
-        } else
-        if (isFinite(value)) {
-            this.string = [] + value;
-        } else {
-            this.string = value;
-        }
-    },
-    getString: function () {
-        return this.string;
-    },
-    getStringLength: function () {
-        return this.string.length;
-    },
-    getStringReverse: function () {
-        let str = this.string,
-            srtReverse,
-            arr;
-        arr = str.split('');
-        arr.reverse();
-        srtReverse = arr.join('');
-        return srtReverse;
+const str = document.createElement('p'),
+    strTwo = document.createElement('p'),
+    strThree = document.createElement('p'),
+    massage = 'I\'m add strind';
+
+str.textContent = massage + ' -> One';
+strTwo.textContent = massage + ' - Two';
+strThree.textContent = massage + ' -> Three';
+
+str.classList.add('test');
+strTwo.classList.add('testTwo');
+strThree.classList.add('testThree');
+
+allDiv[4].append(str);
+const par = document.querySelectorAll('p');
+allDiv[4].prepend(strTwo);
+
+//allDiv[4].insertBefore(strThree, document.querySelectorAll('.test')[0]);
+
+allDiv[4].replaceChild(strThree, strTwo);
+//querySelectParent.removeChild(strThree);
+//someId.remove();
+someId.insertAdjacentHTML("beforebegin", '<p>Im Adjacent sting -> Four</p>');
+allDiv[4].querySelectorAll('p')[1].classList.add('testFour');
+
+const
+    allP = document.querySelectorAll('p'); // all p on the page
+allButton[2].onclick = () => picture.hidden = false;
+allButton[3].onclick = () => picture.hidden = true;
+allP.forEach(function (item, index) {
+    if (item === allP[5]) {} else {
+        item.addEventListener('mouseover', (event) => {
+            item.style.backgroundImage = 'url(image/gradientGreen.png)';
+        });
+        item.addEventListener('mouseout', () => item.style.backgroundImage = 'url(image/gradientOrange.png)');
+        item.addEventListener('click', (event) => {
+            item.style.backgroundImage = 'url(image/gradientRed.png)';
+            //event.target.remove();
+        });
     }
-};
+});
 
-const cal = {
-    val: undefined,
-    setVal: function (value) {
-        if (isFinite(value)) {
-            this.val = value;
-            return this;
-        } else {
-            console.log('ERROR VALUE!');
-        }
-    },
-    add: function (value) {
-        this.val += value;
-        return this;
-    },
-    multiply: function (value) {
-        this.val *= value;
-        return this;
-    },
-    getResult: function () {
-        return this.val;
-    },
-    degree: function (value) {
-        this.val = Math.pow(this.val, value);
-        return this;
-    },
-    divide: function (value) {
-        this.val /= value;
-        return this;
-    }
-};
+//   onclick='document.querySelectorAll("#swallowe")[0].hidden = false'
+
+// let x = 5,
+//     y = 2;
+// let arr = [1, 2, 3, [x, y], x + y, {
+//         valueX: x,
+//         valueY: y,
+//         sum: x + y
+//     }],
+//     arrOne = [10, 20, 30, ...arr],
+//     obj = {
+//         name: 'zenua',
+//         age: 32,
+//         wife: 'Olga',
+//         children: ['Polina', 'Anna', 'Tanua'],
+//         [Symbol.toPrimitive]: function (hint) {
+//             return obj.hint;
+//         }
+//     };
+// let psevdoObject = {
+//     0: 'zenua',
+//     1: 32,
+//     2: 'Olga',
+//     3: ['Polina', 'Anna', 'Tanua'],
+//     length: 4
+// };
+
+
+// const task = {
+//     string: undefined,
+//     installString: function (value) {
+//         if (value === undefined) {
+//             this.string = '';
+//         } else
+//         if (isFinite(value)) {
+//             this.string = [] + value;
+//         } else {
+//             this.string = value;
+//         }
+//     },
+//     getString: function () {
+//         return this.string;
+//     },
+//     getStringLength: function () {
+//         return this.string.length;
+//     },
+//     getStringReverse: function () {
+//         let str = this.string,
+//             srtReverse,
+//             arr;
+//         arr = str.split('');
+//         arr.reverse();
+//         srtReverse = arr.join('');
+//         return srtReverse;
+//     }
+// };
+
+// const cal = {
+//     val: undefined,
+//     setVal: function (value) {
+//         if (isFinite(value)) {
+//             this.val = value;
+//             return this;
+//         } else {
+//             console.log('ERROR VALUE!');
+//         }
+//     },
+//     add: function (value) {
+//         this.val += value;
+//         return this;
+//     },
+//     multiply: function (value) {
+//         this.val *= value;
+//         return this;
+//     },
+//     getResult: function () {
+//         return this.val;
+//     },
+//     degree: function (value) {
+//         this.val = Math.pow(this.val, value);
+//         return this;
+//     },
+//     divide: function (value) {
+//         this.val /= value;
+//         return this;
+//     }
+// };
 
 
 
@@ -210,10 +258,10 @@ const cal = {
 // arrTwo = [...arr, ...arrOne];
 // console.log(arrTwo);
 
-const objToCopy = {
-    name: 'Olga',
-    ageOLga: 29,
-};
+// const objToCopy = {
+//     name: 'Olga',
+//     ageOLga: 29,
+// };
 
 // let obj = { //обьекты
 //     names: 'zenua',

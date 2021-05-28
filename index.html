@@ -21,6 +21,9 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/my.css">
+
 </head>
 
 <body>
@@ -63,14 +66,16 @@
     </header>
     <section>
         <div class="container-xxl" title="imDiv">
-            <div class="row align-items-center">
-                <div class="col-8" >
+            <div class="row align-items-start">
+                <div class="col-7" >
                     <h3>Click F12 and you'll see results of your script in console</h3>
+                    <p  id = 'id'> &nbsp &nbsp some String have id = 'id'</p>
+                    <p class = 'clas'> &nbsp &nbsp some String have class = 'clas'</p>
                 </div>
-                <div class="col-4">
+                <div class="col-5">
                     <h5 >Beautiful swallow</h5>
-                    <button id="hide" onclick='document.querySelectorAll("#swallowe")[0].hidden = true' type="button" class="btn btn-outline-danger">Hide image</button>
-                    <button id="show" onclick='document.querySelectorAll("#swallowe")[0].hidden = false' type="button" class="btn btn-outline-primary">Show image</button>
+                    <button id="show" type="button" class="btn btn-outline-success">Show image</button>
+                    <button id="hide" type="button" class="btn btn-outline-danger">Hide image</button>
                     <img id="swallowe" class="img-thumbnail" src="image/bird.gif" alt="Swallowe"></div>
                     
 
