@@ -1,17 +1,17 @@
 .test{
-    background-color: aquamarine;    
+    background-color: #ffffff;    
 }
 
 .testTwo{
-    background-color: burlywood;
+    background-color: white;
 }
 
 .testThree{
-    background-color: coral;
+    background-color: white;
 }
 
 .testFour{
-    background-color:darkolivegreen;
+    background-color:white;
 }
 
 .test .testTwo .testThree{

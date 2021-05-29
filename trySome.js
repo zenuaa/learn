@@ -6,6 +6,10 @@ const someId = document.getElementById('id'), // some String have id
     allDiv = document.querySelectorAll('div'), // all div on the page
     picture = document.querySelector('#swallowe'); // animation
 
+picture.style.marginRight = '80px';
+picture.style.marginBottom = '10px';
+//allButton[2].style.float = 'left';
+//allButton[3].style.float = 'left';
 
 const str = document.createElement('p'),
     strTwo = document.createElement('p'),
@@ -36,18 +40,33 @@ const
     allP = document.querySelectorAll('p'); // all p on the page
 allButton[2].onclick = () => picture.hidden = false;
 allButton[3].onclick = () => picture.hidden = true;
-allP.forEach(function (item, index) {
+allP.forEach(function (item, index) {       //add events to descriptors p
     if (item === allP[5]) {} else {
         item.addEventListener('mouseover', (event) => {
             item.style.backgroundImage = 'url(image/gradientGreen.png)';
         });
-        item.addEventListener('mouseout', () => item.style.backgroundImage = 'url(image/gradientOrange.png)');
+        item.addEventListener('mouseout', () => item.style.backgroundImage = 'url(image/gradientWhite.png)');
         item.addEventListener('click', (event) => {
             item.style.backgroundImage = 'url(image/gradientRed.png)';
             //event.target.remove();
         });
     }
 });
+
+picture.addEventListener('mouseover', (event) => event.target.style.borderColor = 'green' );
+picture.addEventListener('mouseout', (event) => event.target.style.borderColor = ' #dee2e6' );
+
+const rightCol = document.querySelector('.col-5'),
+    swallowLink = document.createElement('a');
+swallowLink.setAttribute('href', 'https://en.wikipedia.org/wiki/Barn_swallow');
+swallowLink.textContent = 'More informations about swallow.';
+rightCol.append(swallowLink);
+swallowLink.setAttribute('class', 'card-link');
+swallowLink.addEventListener('mouseover', (event) => {event.target.style.fontSize = '18px';
+    event.target.style.textDecoration = 'underline';
+});
+swallowLink.addEventListener('mouseout', (event) => event.target.style.fontSize = '1rem'  );
+
 
 //   onclick='document.querySelectorAll("#swallowe")[0].hidden = false'
 
