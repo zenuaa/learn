@@ -13,10 +13,10 @@
     <meta property="og:site_name" content="TrySome">
     <meta property="og:locale" content="en_EN">
     <!-- для вывода в сниппете поисковой выдачи -->
-    <link rel="shortcut icon" href="" type="image/x-icon"> 
+    <link rel="shortcut icon" href="" type="image/x-icon">
     <!-- icon for page -->
-    
-    
+
+
     <title>trySome</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -52,7 +52,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a  class="dropdown-item" href="#">Something_else_here</a></li>
+                                <li><a class="dropdown-item" href="#">Something_else_here</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -65,41 +65,60 @@
         </nav>
     </header>
     <section>
-        <div class="container-xxl">
+        <div class="container-fluid">
             <div class="row align-items-start">
-                <div class="col-7" >
+                <div class="col-7">
                     <h3>Click F12 and you'll see results of your script in console</h3>
-                    <p  id = 'id'> &nbsp &nbsp some String have id = 'id'</p>
-                    <p class = 'clas'> &nbsp &nbsp some String have class = 'clas'</p>
+                    <p id='id'> &nbsp &nbsp some String have id = 'id'</p>
+                    <p class='clas'> &nbsp &nbsp some String have class = 'clas'</p>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            Values touchstart:
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">pageX:</li>
+                            <li class="list-group-item">pageY:</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            Values touchmove:
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">pageX</li>
+                            <li class="list-group-item">pageY</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-5">
-                    <h5 >Beautiful swallow</h5>
+                    <h5>Beautiful swallow</h5>
                     <button id="show" type="button" class="btn btn-outline-success">Show image</button>
                     <button id="hide" type="button" class="btn btn-outline-danger">Hide image</button>
-                    <img id="swallowe" class="img-thumbnail" src="image/bird.gif" alt="Swallowe"></div>
-                    
+                    <img id="swallowe" class="img-thumbnail" src="image/bird.gif" alt="Swallowe">
+                </div>
+
 
             </div>
         </div>
     </section>
-    <footer class="fixed-bottom">
+    <footer">
         <nav class="navbar navbar-light bg-light">
             <div class="container-xxl">
-              <span class="navbar-text">
-                <p id="footer" class="fs-5">Some Information may be placed here..</p>
-              </span>
+                <span class="navbar-text">
+                    <p id="footer" class="fs-5">Some Information may be placed here..</p>
+                </span>
             </div>
-          </nav>
-    </footer>
+        </nav>
+        </footer>
 
-    <script>
-        " use strict ";
-    </script>
-    <script src="trySome.js"></script>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-    </script>
+        <script>
+            " use strict ";
+        </script>
+        <script src="trySome.js"></script>
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>

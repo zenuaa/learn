@@ -6,6 +6,8 @@ const someId = document.getElementById('id'), // some String have id
     allDiv = document.querySelectorAll('div'), // all div on the page
     picture = document.querySelector('#swallowe'); // animation
 
+    allButton[2].style.margin = '5px';
+    allButton[3].style.margin = '5px';
 picture.style.marginRight = '80px';
 picture.style.marginBottom = '10px';
 //allButton[2].style.float = 'left';
@@ -39,7 +41,10 @@ allDiv[4].querySelectorAll('p')[1].classList.add('testFour');
 const
     allP = document.querySelectorAll('p'); // all p on the page
 allButton[2].onclick = () => picture.hidden = false;
-allButton[3].onclick = () => picture.hidden = true;
+allButton[3].onclick = () => {
+    picture.hidden = true;
+    swallowLink.innerHTML +='<br>';
+};
 allP.forEach(function (item, index) {       //add events to descriptors p
     if (item === allP[5]) {} else {
         item.addEventListener('mouseover', (event) => {
@@ -59,7 +64,7 @@ picture.addEventListener('mouseout', (event) => event.target.style.borderColor =
 const rightCol = document.querySelector('.col-5'),
     swallowLink = document.createElement('a');
 swallowLink.setAttribute('href', 'https://en.wikipedia.org/wiki/Barn_swallow');
-swallowLink.textContent = 'More informations about swallow.';
+swallowLink.innerHTML = '<p>More informations about swallow.</p>';
 rightCol.append(swallowLink);
 swallowLink.setAttribute('class', 'card-link');
 swallowLink.addEventListener('mouseover', (event) => {event.target.style.fontSize = '18px';
@@ -67,6 +72,54 @@ swallowLink.addEventListener('mouseover', (event) => {event.target.style.fontSiz
 });
 swallowLink.addEventListener('mouseout', (event) => event.target.style.fontSize = '1rem'  );
 
+const ulPage = document.querySelectorAll('.list-group-item');
+let valPageX,
+    valPageY,
+    valMoveX,
+    valMoveY;
+window.onload = ()=>{
+    picture.addEventListener('touchstart', (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        valPageX = e.touches[0].pageX;
+        valPageY = e.touches[0].pageY;
+        ulPage[0].textContent = `pageX: ${valPageX}`;
+        ulPage[1].textContent = `pageY: ${valPageY}`;
+    });
+    picture.addEventListener('touchmove', (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        valMoveX = e.touches[0].pageX;
+        valMoveY = e.touches[0].pageY;
+        ulPage[2].textContent = `pageX: ${valMoveX}`;
+        ulPage[3].textContent = `pageY: ${valMoveY}`;
+
+ 
+    });
+};
+
+
+
+//ulPage[0].textContent += valPageX;
+// document.addEventListener('DOMContentLoaded', ()=>{
+//     picture.addEventListener('touchstart', (e)=>{
+//         e.preventDefault();
+//         console.warn(e.changedTouches);
+//         console.warn('touch start just happend!');
+//     });
+//     picture.addEventListener('touchmove', (e)=>{
+//         e.preventDefault();
+//         console.info('move just happend');
+//     });
+//     picture.addEventListener('touchend', (e)=>{
+//         e.preventDefault();
+//         console.log('end');
+        
+        
+//     });
+   
+// }
+// );
 
 //   onclick='document.querySelectorAll("#swallowe")[0].hidden = false'
 
