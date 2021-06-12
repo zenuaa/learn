@@ -6,8 +6,8 @@ const someId = document.getElementById('id'), // some String have id
     allDiv = document.querySelectorAll('div'), // all div on the page
     picture = document.querySelector('#swallowe'); // animation
 
-    allButton[2].style.margin = '5px';
-    allButton[3].style.margin = '5px';
+allButton[2].style.margin = '5px';
+allButton[3].style.margin = '5px';
 picture.style.marginRight = '80px';
 picture.style.marginBottom = '10px';
 //allButton[2].style.float = 'left';
@@ -40,12 +40,9 @@ allDiv[4].querySelectorAll('p')[1].classList.add('testFour');
 
 const
     allP = document.querySelectorAll('p'); // all p on the page
-allButton[2].onclick = () => picture.hidden = false;
-allButton[3].onclick = () => {
-    picture.hidden = true;
-    swallowLink.innerHTML +='<br>';
-};
-allP.forEach(function (item, index) {       //add events to descriptors p
+
+
+allP.forEach(function (item, index) { //add events to descriptors p
     if (item === allP[5]) {} else {
         item.addEventListener('mouseover', (event) => {
             item.style.backgroundImage = 'url(image/gradientGreen.png)';
@@ -58,8 +55,8 @@ allP.forEach(function (item, index) {       //add events to descriptors p
     }
 });
 
-picture.addEventListener('mouseover', (event) => event.target.style.borderColor = 'green' );
-picture.addEventListener('mouseout', (event) => event.target.style.borderColor = ' #dee2e6' );
+picture.addEventListener('mouseover', (event) => event.target.style.borderColor = 'green');
+picture.addEventListener('mouseout', (event) => event.target.style.borderColor = ' #dee2e6');
 
 const rightCol = document.querySelector('.col-5'),
     swallowLink = document.createElement('a');
@@ -67,36 +64,69 @@ swallowLink.setAttribute('href', 'https://en.wikipedia.org/wiki/Barn_swallow');
 swallowLink.innerHTML = '<p>More informations about swallow.</p>';
 rightCol.append(swallowLink);
 swallowLink.setAttribute('class', 'card-link');
-swallowLink.addEventListener('mouseover', (event) => {event.target.style.fontSize = '18px';
+swallowLink.addEventListener('mouseover', (event) => {
+    event.target.style.fontSize = '18px';
     event.target.style.textDecoration = 'underline';
 });
-swallowLink.addEventListener('mouseout', (event) => event.target.style.fontSize = '1rem'  );
+swallowLink.addEventListener('mouseout', (event) => event.target.style.fontSize = '1rem');
 
 const ulPage = document.querySelectorAll('.list-group-item');
 let valPageX,
     valPageY,
     valMoveX,
     valMoveY;
-window.onload = ()=>{
-    picture.addEventListener('touchstart', (e)=>{
-        e.preventDefault();
-        e.stopPropagation();
+window.onload = () => {
+    picture.addEventListener('touchstart', (e) => {
+        // e.preventDefault();
+        // e.stopPropagation();
         valPageX = e.touches[0].pageX;
         valPageY = e.touches[0].pageY;
         ulPage[0].textContent = `pageX: ${valPageX}`;
         ulPage[1].textContent = `pageY: ${valPageY}`;
+    }, {
+        passive: true
     });
-    picture.addEventListener('touchmove', (e)=>{
-        e.preventDefault();
-        e.stopPropagation();
+    picture.addEventListener('touchmove', (e) => {
+        // e.preventDefault();
+        // e.stopPropagation();
         valMoveX = e.touches[0].pageX;
         valMoveY = e.touches[0].pageY;
         ulPage[2].textContent = `pageX: ${valMoveX}`;
         ulPage[3].textContent = `pageY: ${valMoveY}`;
-
- 
+    }, {
+        passive: true
     });
 };
+
+const toTop = document.links[7];
+toTop.classList.add('btn');
+toTop.style.position = 'fixed';
+toTop.style.bottom = '100px';
+toTop.style.right = '100px';
+toTop.addEventListener('click', () => {
+    window.location = '#top';
+});
+
+let hidePicture = () => {
+        picture.hidden = true;
+        const z = document.createElement('br');
+        z.id = 'createDiv';
+        document.querySelector('#swallowe').before(z);
+
+    },
+    showPicture = () => {picture.hidden = false;
+        if(document.querySelector('#createDiv')){
+        document.querySelector('#createDiv').remove();
+        }
+        
+    };
+
+allButton[3].addEventListener('click', hidePicture);
+allButton[2].addEventListener('click', showPicture);
+
+
+
+
 
 
 
@@ -114,10 +144,10 @@ window.onload = ()=>{
 //     picture.addEventListener('touchend', (e)=>{
 //         e.preventDefault();
 //         console.log('end');
-        
-        
+
+
 //     });
-   
+
 // }
 // );
 
