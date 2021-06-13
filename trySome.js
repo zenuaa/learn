@@ -1,4 +1,5 @@
 " use strict ";
+let qwe = 12;
 const someId = document.getElementById('id'), // some String have id
     querySelect = document.querySelectorAll('.clas')[0], // some String have class
     querySelectParent = querySelect.parentNode, // main div with our all strings
