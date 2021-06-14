@@ -88,14 +88,14 @@ allP.forEach(function (item, index) { //add events to descriptors p
 picture.addEventListener('mouseover', (event) => event.target.style.borderColor = 'green');
 picture.addEventListener('mouseout', (event) => event.target.style.borderColor = ' #dee2e6');
 
-const rightCol = document.querySelector('.col-7'),
+const rightCol = document.querySelector('.col-8'),
     moreInformationLink = document.createElement('a');
 moreInformationLink.setAttribute('href', 'https://en.wikipedia.org/wiki/Barn_swallow');
 moreInformationLink.innerHTML = '<p>More informations about swallow.</p>';
 rightCol.append(moreInformationLink);
 moreInformationLink.setAttribute('class', 'card-link');
 moreInformationLink.addEventListener('mouseover', (event) => {
-    event.target.style.fontSize = '18px';
+    event.target.style.fontSize = '15px';
     event.target.style.textDecoration = 'underline';
 });
 moreInformationLink.addEventListener('mouseout', (event) => event.target.style.fontSize = '1rem');
@@ -111,8 +111,8 @@ window.onload = () => {
         // e.stopPropagation();
         valPageX = e.touches[0].pageX;
         valPageY = e.touches[0].pageY;
-        ulPage[0].textContent = `pageX: ${valPageX}`;
-        ulPage[1].textContent = `pageY: ${valPageY}`;
+        ulPage[0].textContent = `pageX: ${parseFloat(valPageX).toFixed(10)}`;
+        ulPage[1].textContent = `pageY: ${parseFloat(valPageY).toFixed(10)}`;
     }, {
         passive: true
     });
@@ -121,8 +121,8 @@ window.onload = () => {
         // e.stopPropagation();
         valMoveX = e.touches[0].pageX;
         valMoveY = e.touches[0].pageY;
-        ulPage[2].textContent = `pageX: ${valMoveX}`;
-        ulPage[3].textContent = `pageY: ${valMoveY}`;
+        ulPage[2].textContent = `pageX: ${parseFloat(valMoveX).toFixed(10)}`;
+        ulPage[3].textContent = `pageY: ${parseFloat(valMoveY).toFixed(10)}`;
     }, {
         passive: true
     });
