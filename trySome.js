@@ -112,9 +112,10 @@ let hidePicture = () => {
         picture.hidden = true;
         const z = document.createElement('br');
         z.id = 'createDiv';
+    if(!document.querySelector('#createDiv')){
         document.querySelector('#swallowe').before(z);
-
-    },
+    }       
+        },
     showPicture = () => {picture.hidden = false;
         if(document.querySelector('#createDiv')){
         document.querySelector('#createDiv').remove();
