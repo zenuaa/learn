@@ -39,13 +39,9 @@ const someId = document.getElementById('id'), // some String have id
     allDiv = document.querySelectorAll('div'), // all div on the page
     picture = document.querySelector('#swallowe'); // animation
 
-allButton[2].style.margin = '5px';
 allButton[2].hidden = true;
-allButton[3].style.margin = '5px';
-picture.style.marginRight = '80px';
-picture.style.marginBottom = '10px';
-//allButton[2].style.float = 'left';
-//allButton[3].style.float = 'left';
+allButton[2].style.backgroundColor = 'rgb(174, 242, 187)';
+allButton[3].style.backgroundColor = 'rgb(91, 186, 227)';
 
 const str = document.createElement('p'),
     strTwo = document.createElement('p'),
@@ -92,7 +88,7 @@ allP.forEach(function (item, index) { //add events to descriptors p
 picture.addEventListener('mouseover', (event) => event.target.style.borderColor = 'green');
 picture.addEventListener('mouseout', (event) => event.target.style.borderColor = ' #dee2e6');
 
-const rightCol = document.querySelector('.col-5'),
+const rightCol = document.querySelector('.col-7'),
     moreInformationLink = document.createElement('a');
 moreInformationLink.setAttribute('href', 'https://en.wikipedia.org/wiki/Barn_swallow');
 moreInformationLink.innerHTML = '<p>More informations about swallow.</p>';
@@ -166,7 +162,8 @@ allButton[3].addEventListener('click', hidePicture);
 allButton[2].addEventListener('click', showPicture);
 
 document.querySelectorAll('.btn-primary').forEach((item, index) => {
-    item.addEventListener('click', () => {
+    item.parentNode.classList.add('btn-group-vertical');
+        item.addEventListener('click', () => {
         picture.src = pictureDB[index].url;
         moreInformationLink.textContent = strInfoPicture + `${pictureDB[index].name.toLowerCase()}`;
         allDiv[9].children[0].textContent = pictureDB[index].name;
