@@ -88,7 +88,7 @@ allP.forEach(function (item, index) { //add events to descriptors p
 picture.addEventListener('mouseover', (event) => event.target.style.borderColor = 'green');
 picture.addEventListener('mouseout', (event) => event.target.style.borderColor = ' #dee2e6');
 
-const rightCol = document.querySelector('.col-8'),
+const rightCol = document.querySelector('.col-md-8'),
     moreInformationLink = document.createElement('a');
 moreInformationLink.setAttribute('href', 'https://en.wikipedia.org/wiki/Barn_swallow');
 moreInformationLink.innerHTML = '<p>More informations about swallow.</p>';
