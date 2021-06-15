@@ -171,5 +171,8 @@ document.querySelectorAll('.btn-primary').forEach((item, index) => {
     });
 });
 
-ulPage[4].textContent  += `${screen.width}x${screen.height}px`;  //show display size
+ulPage[4].addEventListener('click', (e)=>{
+    e.target.style.backgroundColor = 'rgb(121, 209, 202)';
+    e.target.textContent = ` display: ${screen.width}x${screen.height}px`;  //show display size
+});
 
