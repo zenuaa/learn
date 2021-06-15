@@ -133,7 +133,7 @@ toTop.classList.add('btn');
 toTop.style.position = 'fixed';
 toTop.style.bottom = '100px';
 toTop.style.right = '100px';
-toTop.addEventListener('click', () => {
+toTop.addEventListener('click', () => {     // GO TO TOP
     window.location = '#top';
 });
 
@@ -170,3 +170,6 @@ document.querySelectorAll('.btn-primary').forEach((item, index) => {
         moreInformationLink.href = pictureDB[index].moreInformation;
     });
 });
+
+ulPage[4].textContent  += `${screen.width}x${screen.height}px`;  //show display size
+
