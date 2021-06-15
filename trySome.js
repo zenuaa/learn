@@ -162,7 +162,6 @@ allButton[3].addEventListener('click', hidePicture);
 allButton[2].addEventListener('click', showPicture);
 
 document.querySelectorAll('.btn-primary').forEach((item, index) => {
-    item.parentNode.classList.add('btn-group-vertical');
         item.addEventListener('click', () => {
         picture.src = pictureDB[index].url;
         moreInformationLink.textContent = strInfoPicture + `${pictureDB[index].name.toLowerCase()}`;
