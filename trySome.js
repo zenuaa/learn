@@ -128,14 +128,25 @@ window.onload = () => {
     });
 };
 
-const toTop = document.links[7];
-toTop.classList.add('btn');
-toTop.style.position = 'fixed';
-toTop.style.bottom = '100px';
-toTop.style.right = '100px';
-toTop.addEventListener('click', () => {     // GO TO TOP
-    window.location = '#top';
-});
+// const toTop = document.links[7];
+// toTop.hidden = true;
+// toTop.classList.add('btn');
+// toTop.style.position = 'fixed';
+// toTop.style.bottom = '100px';
+// toTop.style.right = '100px';
+// toTop.addEventListener('click', () => {     // GO TO TOP
+//     window.location = '#top';
+// });
+// window.onload = function(){
+//     let toTop = document.createElement('button');
+//     toTop.textContent = 'top';
+//     toTop.id = 'go-top';
+//     toTop.classList.add('btn', 'btn-outline-secondary');
+//     document.querySelector('footer').lastElementChild.before(toTop);
+//   document.addEventListener('scroll', ()=>{
+//     window.scrollY > 350 ? toTop.style.display = 'block': top.style.display = 'none';
+//   });    
+// };
 
 let hidePicture = () => {
         picture.hidden = true;
