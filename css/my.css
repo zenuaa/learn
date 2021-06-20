@@ -17,6 +17,16 @@
 .test .testTwo .testThree{
     text-decoration: underline;
 }
+
+.gradientOrange{
+	background: url(../image/gradientOrange.png) repeat-y;	
+}
+.gradientWhite{
+	background: url(../image/gradientWhite.png) repeat-y;
+}
+.activeShowSize{
+	background-color: rgb(121, 209, 202);
+}
 /* button to top */
 .btn {
 	display: inline-block;	
@@ -52,3 +62,5 @@
 	opacity: 0.65;
 }
 /* end */
+
+
