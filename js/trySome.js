@@ -187,6 +187,14 @@ const rowButton = document.querySelector('.btn-group');
 // rowButton.addEventListener('click', (event)=>{
 //     event.target.nodeName === 'BUTTON' ? console.log("it's button") : console.log("it's div");
 // });
+ let setBackgroundOrange = (e) => {
+        if (e.target.classList.contains('gradientWhite')) {
+            e.target.classList.remove('gradientWhite');
+        }
+        e.target.classList.add('gradientOrange');
+    };
+    let setBackgroundWhite = (e) => e.target.classList.add('gradientWhite');
+
 document.addEventListener('DOMContentLoaded', () => {
 
     ulPage[4].addEventListener('click', (e) => {
@@ -200,14 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     ulPage[4].style.cursor = 'pointer';
-    let setBackgroundOrange = (e) => {
-        if (e.target.classList.contains('gradientWhite')) {
-            e.target.classList.remove('gradientWhite');
-        }
-        e.target.classList.add('gradientOrange');
-    };
+   
     ulPage[4].addEventListener('mouseover', setBackgroundOrange, false);
-    let setBackgroundWhite = (e) => e.target.classList.add('gradientWhite');
     ulPage[4].addEventListener('mouseout', setBackgroundWhite, false);
 });
 
@@ -226,30 +228,18 @@ const autoChageImages = (p = pictureDB, m = moreInformationLink, b = buttonPrima
     allDiv[9].children[0].textContent = p[0].name;
     b[5].classList.remove(act);
     b[0].classList.add(act);
-    if (stopChandeImage === true) {
-        //clearTimeout(cat);
-        return false;
-    }
     const cat = setTimeout(() => {
         picture.src = p[1].url;
         m.textContent = strInfoPicture + `${p[1].name.toLowerCase()}`;
         allDiv[9].children[0].textContent = p[1].name;
         b[0].classList.remove(act);
         b[1].classList.add(act);
-        if (stopChandeImage === true) {
-            clearTimeout(cat);
-            return false;
-        }
         const fish = setTimeout(() => {
             picture.src = p[2].url;
             m.textContent = strInfoPicture + `${p[2].name.toLowerCase()}`;
             allDiv[9].children[0].textContent = p[2].name;
             b[1].classList.remove(act);
             b[2].classList.add(act);
-            if (stopChandeImage === true) {
-                clearTimeout(fish);
-                return false;
-            }
             setTimeout(() => {
                 picture.src = p[3].url;
                 m.textContent = strInfoPicture + `${p[3].name.toLowerCase()}`;
@@ -289,3 +279,20 @@ allButton[10].addEventListener('click', (e) => {
 allButton[11].addEventListener('click', () => {
     location.reload();
 });
+
+let nowDate = new Date(),
+    arrDate = nowDate.toString().split(' ');
+ulPage[5].addEventListener('click', (e)=>{
+    e.target.removeEventListener('mouseout', setBackgroundWhite, !1);
+    e.target.removeEventListener('mouseover', setBackgroundOrange, !1);
+    e.target.classList.remove('gradientOrange');
+    e.target.classList.add('activeShowSize');
+    e.target.textContent = 'date: ' + nowDate.toLocaleDateString() ;
+    ulPage[6].hidden = false;
+    ulPage[6].classList.add('activeShowSize');
+    ulPage[6].textContent = 'time: ' + nowDate.toLocaleTimeString();
+
+}, {once: !0});
+ulPage[5].style.cursor = 'pointer';
+ulPage[5].addEventListener('mouseover', setBackgroundOrange, !1);
+ulPage[5].addEventListener('mouseout', setBackgroundWhite, !1);
