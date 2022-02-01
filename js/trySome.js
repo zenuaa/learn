@@ -187,13 +187,13 @@ const rowButton = document.querySelector('.btn-group');
 // rowButton.addEventListener('click', (event)=>{
 //     event.target.nodeName === 'BUTTON' ? console.log("it's button") : console.log("it's div");
 // });
- let setBackgroundOrange = (e) => {
-        if (e.target.classList.contains('gradientWhite')) {
-            e.target.classList.remove('gradientWhite');
-        }
-        e.target.classList.add('gradientOrange');
-    };
-    let setBackgroundWhite = (e) => e.target.classList.add('gradientWhite');
+let setBackgroundOrange = (e) => {
+    if (e.target.classList.contains('gradientWhite')) {
+        e.target.classList.remove('gradientWhite');
+    }
+    e.target.classList.add('gradientOrange');
+};
+let setBackgroundWhite = (e) => e.target.classList.add('gradientWhite');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -202,13 +202,13 @@ document.addEventListener('DOMContentLoaded', () => {
         e.target.removeEventListener('mouseover', setBackgroundOrange, false);
         e.target.classList.remove('gradientOrange');
         e.target.classList.add('activeShowSize');
-        e.target.textContent = `screen.width: ${screen.width}x${screen.height}px`; //show display size
+        e.target.textContent = `screen.width: ${screen.width}product${screen.height}px`; //show display size
         window.addEventListener('resize', (e) => {
-            ulPage[4].textContent = `screen.width: ${screen.width}x${screen.height}px`; //show resize display size
+            ulPage[4].textContent = `screen.width: ${screen.width}product${screen.height}px`; //show resize display size
         });
     });
     ulPage[4].style.cursor = 'pointer';
-   
+
     ulPage[4].addEventListener('mouseover', setBackgroundOrange, false);
     ulPage[4].addEventListener('mouseout', setBackgroundWhite, false);
 });
@@ -267,14 +267,16 @@ const autoChageImages = (p = pictureDB, m = moreInformationLink, b = buttonPrima
 };
 
 const removeBtnGroupActive = () => {
-buttonPrimary.forEach(item => item.classList.remove('btnGroupActive'));
+    buttonPrimary.forEach(item => item.classList.remove('btnGroupActive'));
 };
 
 allButton[10].addEventListener('click', (e) => {
     e.target.textContent = 'Auto change applied ';
     removeBtnGroupActive();
     autoChage = setTimeout(autoChageImages, 1);
-}, {once: true});
+}, {
+    once: true
+});
 
 allButton[11].addEventListener('click', () => {
     location.reload();
@@ -282,17 +284,97 @@ allButton[11].addEventListener('click', () => {
 
 let nowDate = new Date(),
     arrDate = nowDate.toString().split(' ');
-ulPage[5].addEventListener('click', (e)=>{
+ulPage[5].addEventListener('click', (e) => {
     e.target.removeEventListener('mouseout', setBackgroundWhite, !1);
     e.target.removeEventListener('mouseover', setBackgroundOrange, !1);
     e.target.classList.remove('gradientOrange');
     e.target.classList.add('activeShowSize');
-    e.target.textContent = 'date: ' + nowDate.toLocaleDateString() ;
+    e.target.textContent = 'date: ' + nowDate.toLocaleDateString();
     ulPage[6].hidden = false;
     ulPage[6].classList.add('activeShowSize');
     ulPage[6].textContent = 'time: ' + nowDate.toLocaleTimeString();
 
-}, {once: !0});
+}, {
+    once: !0
+});
 ulPage[5].style.cursor = 'pointer';
 ulPage[5].addEventListener('mouseover', setBackgroundOrange, !1);
 ulPage[5].addEventListener('mouseout', setBackgroundWhite, !1);
+
+
+//  PROMISE
+
+// console.log('запрос данных...');
+// const promise = new Promise(function (resolve, reject) {
+//     setTimeout(()=>{
+//         console.log('подготовка данных..');
+//         const product = {
+//             name: 'bread',
+//             price: 20, 
+//         };
+//         setTimeout(()=>{
+//             product.status = 'order';
+//             console.log('загрузка данных..');
+//               resolve(product);
+//         }, 2000);
+//     }, 2000);
+
+// });
+
+// promise.then((result)=>{
+//     console.log(result);
+
+// });
+
+
+// console.log('запрос данных..');
+// const promise = new Promise(function (resolve, reject) {
+//     setTimeout(() => {
+//         console.log('подготовка данных..');
+//         const product = {
+//             name: 'bread',
+//             price: 20,
+//         };
+//         resolve(product);
+//     }, 2000);
+
+// });
+
+// promise.then((product) => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             product.status = 'order';
+//             console.log('получение данных..');
+//             resolve(product);
+//             // reject();
+//         }, 2000);
+//     }).then(product => {
+//         return new Promise(resolve => {
+//             setTimeout(() => {
+//                 product.availiabiliti = true;
+//                 console.warn(product);
+//             }, 2000);
+//             console.log('вывод данных:');
+//             resolve(product);
+//         });
+//     }).then((product) => {
+//         console.log(product);
+//     }).catch(() => {
+//         console.warn('An arror has ocurated');
+//     }).finally(()=>{
+//         console.log('finally');
+        
+//     });
+// });
+
+const test = (time)=>{
+return new Promise((resolve)=>{
+    setTimeout(()=>{
+        resolve(time);
+    }, time);
+});
+};
+
+test(1000).then((time)=>console.log(`it was ${time}`));
+test(2000).then((time)=>console.log(`it was ${time}`));
+test(3000).then((time)=>console.log(`it was ${time}`));

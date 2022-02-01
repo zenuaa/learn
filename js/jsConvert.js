@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const inputUSD = document.querySelector('#convertUSD'),
         inputUAH = document.querySelector('#convertUAH');
@@ -14,7 +14,7 @@ inputUSD.addEventListener('input', ()=>{
             // console.log(data.current.usd);
             inputUAH.value = (inputUSD.value * data.current.usd).toFixed(2);
         }
-        else{inputUAH.value = 'что-то пошло не так'}
-    })
+        else{inputUAH.value = 'что-то пошло не так';}
+    });
 
-})
+});
