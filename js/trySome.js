@@ -363,18 +363,23 @@ ulPage[5].addEventListener('mouseout', setBackgroundWhite, !1);
 //         console.warn('An arror has ocurated');
 //     }).finally(()=>{
 //         console.log('finally');
-        
+
 //     });
 // });
 
-const test = (time)=>{
-return new Promise((resolve)=>{
-    setTimeout(()=>{
-        resolve(time);
-    }, time);
-});
+const test = (time) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(time);
+        }, time);
+    });
 };
 
-test(1000).then((time)=>console.log(`it was ${time}`));
-test(2000).then((time)=>console.log(`it was ${time}`));
-test(3000).then((time)=>console.log(`it was ${time}`));
+test(1000).then((time) => console.log(`it was ${time}`));
+test(2000).then((time) => console.log(`it was ${time}`));
+test(3000).then((time) => console.log(`it was ${time}`));
+
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(json => console.log(json));
