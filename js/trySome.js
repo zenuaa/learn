@@ -383,3 +383,43 @@ test(3000).then((time) => console.log(`it was ${time}`));
 fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then(response => response.json())
     .then(json => console.log(json));
+
+const arrOne = [1, 2, 3, 4, 5, 6, 7, 8, -10, {
+    name: 'zenua',
+    age: 32
+}];
+
+
+// const newArr = arrOne.reduce((accum, item)=>{
+//  if('number' === typeof(item)){
+//     return (accum += item); 
+//  }
+//  else{ return accum;}
+// }, 0);
+// console.log(newArr);
+
+
+// const fruit = ['apple', 'plum', 'orange', 'mango'];
+// const stringFruit = fruit.reduce((acum, item)=>{
+//     return (acum + ', ' + item);
+// }, 'banana');
+// console.log(stringFruit);
+
+
+
+const strangeObject = {
+    zenua: 'persone',
+    olga: 'persone',
+    tanusha: 'child',
+    oskar: 'dog',
+    tihan: 'cat',
+};
+
+let entiresObject = Object.entries(strangeObject)
+.filter((item) => {
+    return ('persone' === item[1]);
+})
+.map(item => {
+    return (item[0]);
+});
+console.log(entiresObject);
