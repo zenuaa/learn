@@ -404,22 +404,43 @@ const arrOne = [1, 2, 3, 4, 5, 6, 7, 8, -10, {
 //     return (acum + ', ' + item);
 // }, 'banana');
 // console.log(stringFruit);
+ const  slidesPicQuery = document.querySelectorAll('.slidesPic');
+if (document.body.clientWidth < 801) {
+    document.querySelector('.flex_container_slidesPic').style.flexDirection = 'column';
+    slidesPicQuery.forEach(item=>{
+        item.style.margin = '5px 0px 5px 10px';
+    });
+
+} else {
+   if (document.body.clientWidth > 1201) {
+    document.querySelector('.flex_container_slidesPic').style.justifyContent = 'center';
+   
+    slidesPicQuery.forEach(item=>{
+        item.style.margin = '10px 25px 10px 10px';
+    });
+
+    console.log('it was done');    
+   }
+    
+}
+
+let elemItem = document.querySelectorAll('.item');
+let counterClick = 0;
 
 
 
-const strangeObject = {
-    zenua: 'persone',
-    olga: 'persone',
-    tanusha: 'child',
-    oskar: 'dog',
-    tihan: 'cat',
-};
+        const strangeObject = {
+            zenua: 'persone',
+            olga: 'persone',
+            tanusha: 'child',
+            oskar: 'dog',
+            tihan: 'cat',
+        };
 
-let entiresObject = Object.entries(strangeObject)
-.filter((item) => {
-    return ('persone' === item[1]);
-})
-.map(item => {
-    return (item[0]);
-});
-console.log(entiresObject);
+        let entiresObject = Object.entries(strangeObject)
+            .filter((item) => {
+                return ('persone' === item[1]);
+            })
+            .map(item => {
+                return (item[0]);
+            }); console.log(entiresObject);

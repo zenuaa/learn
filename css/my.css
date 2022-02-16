@@ -66,4 +66,58 @@
 .btnGroupActive{
 	border:rgb(101, 160, 228) 2px solid;
 }
+/* описание flex контейнеров */
+body {
+	/* padding: 20px; */
+	font: 1em Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+  
+  * {box-sizing: border-box;}
+  
+  /* p {
+	margin: 0 0 1em 0;
+  } */
+  
+  .flex_container_block {  
+	border: 5px solid rgb(196, 59, 35);
+	border-radius: .5em;
+	padding: 10px;
+	display: flex;
+	/* width: 530px; */
+	/* flex-direction: row-reverse; */
+	flex-direction: row;
+	justify-content: stretch;
+	align-items: baseline;
+	
+  }
+  
+  .flex_container_inline {
+	  border: 5px solid #385898;
+	  border-radius: .5em;
+	  padding: 10px;
+	  display: inline-flex;
+	  flex-direction: column;
+	  justify-content: flex-end;
+	  align-items: baseline;
+	  
 
+	}
+  .item {
+	/* width: 100px;
+	height: 100px; */
+	padding: 10px;
+	border: 2px solid rgba(111,41,97,.5);
+	background-color:rgb(121, 209, 202);
+  }
+
+  .flex_container_slidesPic{
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: space-around; 
+	  overflow: scroll;
+  }
+
+  .slidesPic{
+	  border: dotted 2px black;
+	  margin: 10px 25px 10px 10px;
+  }
